@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  SEQUENCES.  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Andrew Blonsky.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -134,13 +134,18 @@ def practice_problem4a(sequence):
       :type sequence: list | tuple | string
     """
     ####################################################################
-    # TODO: 2. Implement and test this function.
+    # Done: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 minutes.
     ####################################################################
+    reterik = []
+    for k in range(len(sequence)-1):
+        if sequence[k] == sequence[k+1]:
+            reterik.append(k)
+    return reterik
 
 
 def run_test_practice_problem4b():
@@ -197,13 +202,18 @@ def practice_problem4b(sequence):
       :type sequence: (list | tuple) of (float | int)
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   10 minutes.
     ####################################################################
+    tot = sequence[0]
+    for k in range (0,len(sequence),2):
+        if sequence[k] > tot:
+            tot=sequence[k]
+    return tot
 
 
 def run_test_practice_problem4c():
@@ -264,6 +274,14 @@ def run_test_practice_problem4c():
         print()
 
 
+def ifprime(num):
+    for k in range(2,math.sqrt(num) // 1):
+        if num//k == 0:
+            return False
+    return True
+
+
+
 def practice_problem4c(points):
     """
     What comes in:  A tuple of rg.Points, each of whose coordinates
@@ -306,6 +324,9 @@ def practice_problem4c(points):
     #    DIFFICULTY:      9
     #    TIME ESTIMATE:   15 minutes.
     ####################################################################
+
+
+
 
 
 def run_test_practice_problem4d():
