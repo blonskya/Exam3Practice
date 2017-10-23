@@ -105,6 +105,8 @@ def hourglass(window, n, point, radius, color):
     basecirc=rg.Circle(point,radius)
     basecirc.fill_color = color
     basecirc.attach_to(window)
+    newline = rg.Line(rg.Point(basecirc.center.x - basecirc.radius, basecirc.center.y),rg.Point(basecirc.center.x + basecirc.radius, basecirc.center.y))
+    newline.attach_to(window)
     window.render(0.05)
     for k in range(n):
         if k != 0:
@@ -112,11 +114,16 @@ def hourglass(window, n, point, radius, color):
                 newcirc = rg.Circle(rg.Point(basecirc.center.x-radius+j*2*radius-(k-1)*radius, basecirc.center.y-math.sqrt(-radius**2+(2*radius)**2)-(k-1)*math.sqrt(-radius**2+(2*radius)**2)),radius)
                 newcirc.fill_color = color
                 newcirc.attach_to(window)
+                newline = rg.Line(rg.Point(newcirc.center.x-newcirc.radius,newcirc.center.y),rg.Point(newcirc.center.x+newcirc.radius,newcirc.center.y))
+                newline.attach_to(window)
                 window.render(0.05)
                 newcirc = rg.Circle(rg.Point(basecirc.center.x-radius+j*2*radius-(k-1)*radius, basecirc.center.y+math.sqrt(-radius**2+(2*radius)**2)+(k-1)*math.sqrt(-radius**2+(2*radius)**2)),radius)
                 newcirc.fill_color = color
+                newline = rg.Line(rg.Point(newcirc.center.x - newcirc.radius, newcirc.center.y),rg.Point(newcirc.center.x + newcirc.radius, newcirc.center.y))
                 newcirc.attach_to(window)
+                newline.attach_to(window)
                 window.render(0.05)
+
 
 def run_test_many_hourglasses():
     """ Tests the    many_hourglasses    function. """
@@ -178,7 +185,7 @@ def many_hourglasses(window, square, m, colors):
     each of which denotes a color that rosegraphics understands.
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #       We provided some tests for you (above).
     # ------------------------------------------------------------------
     ####################################################################
